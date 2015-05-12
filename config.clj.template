@@ -1,0 +1,4 @@
+{:consumer-key "consumer-key-goes-here"
+ :consumer-secret "consumer-secret-goes-here"
+ :access-token "access-token-goes-here"
+ :access-token-secret "access-token-secret-goes-here"}
