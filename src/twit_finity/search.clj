@@ -9,9 +9,11 @@
   (:import
     (twitter.callbacks.protocols SyncSingleCallback)))
 
-(defn my-creds []
-  (let [{:keys [consumer-key consumer-secret access-token access-token-secret]} (auth/load-config)]
-    (make-oath-creds consumer-key consumer-secret-access-token access-token-secret)))
+(defn my-creds* []
+  (let [{:keys [consumer-key consumer-secret access-token access-token-secret]} (auth/load-config "config.clj")]
+    (make-oauth-creds consumer-key consumer-secret access-token access-token-secret)))
+
+(def my-creds (memoize my-creds*))
 
 (def ^:const results-per-search 100)
 (def ^:const time-between-searches 20000)
