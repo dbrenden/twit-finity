@@ -1,13 +1,12 @@
 (ns twit-finity.search
-  (:use
-    [twitter.oauth :only [make-oauth-creds]]
-    [twitter.api.restful :only [search-tweets]])
   (:require
-    [clojure.data.json :as json]
-    [http.async.client :as ac]
-    [twit-finity.auth :as auth])
+   [twitter.oauth :refer [make-oauth-creds]]
+   [twitter.api.restful :refer [search-tweets]]
+   [clojure.data.json :as json]
+   [http.async.client :as ac]
+   [twit-finity.auth :as auth])
   (:import
-    (twitter.callbacks.protocols SyncSingleCallback)))
+   (twitter.callbacks.protocols SyncSingleCallback)))
 
 (defn my-creds* []
   (let [{:keys [consumer-key consumer-secret access-token access-token-secret]} (auth/load-config "config.clj")]
