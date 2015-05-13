@@ -7,5 +7,3 @@
   [filename]
   (-> (slurp filename)
       edn/read-string))
-
-(def credentials (load-config "config.clj"))
